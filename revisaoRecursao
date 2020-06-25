@@ -1,0 +1,56 @@
+def fatorial(numero):
+  if numero == 1:
+	  return 1
+	
+	return numero * fatorial(numero-1)
+
+# soma itens de uma lista
+
+def somaItens(lista, nElementos):
+	
+	# nElementos eh o numero de itens a serem somados
+
+	if nElementos == 0:
+		return 0
+
+	return somaItens(lista, nElementos - 1) + lista[nElementos-1]
+
+def fibonacci(numero):
+	
+	if numero == 1 or numero == 2:
+		return 1
+
+	return fibonacci(numero - 1) + fibonacci(numero - 2)
+
+def somaPares(numero):
+	if numero <= 0:
+		return 0
+	else:
+		if numero % 2 == 0:
+			return somaPares(numero-2) + numero
+		else:
+			return somaPares(numero-1)
+
+def palindromo(palavra):
+
+	if len(palavra) <= 1:
+		return True
+	if palavra[0] != palavra[-1]:
+		return False
+
+	return palindromo(palavra[1:-1])
+
+def inverteString(string):
+	if len(string) <= 1:
+		return string
+
+	return string[-1] + inverteString(string[1:-1]) + string[0]
+
+
+# print(fatorial(5))
+# lista = [1, 2, 3, 4, 5]
+# print(somaItens(lista,5))
+# print(fibonacci(7))
+# print(somaPares(8))
+# print(palindromo('ana'))
+# print(inverteString('palavra'))
