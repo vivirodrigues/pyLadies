@@ -1,0 +1,15 @@
+# Tuplas são estruturas de dados heterogêneas
+
+# O que demonstra se a estrutura eh uma tupla são as virgulas. Exemplos:
+
+tupla1 = ("a", "b", 1, 2, "c") # diferentes tipos de dados
+tupla2 = () # tupla vazia
+tupla3 = 2, # tupla de um unico elemento. Obs: a virgula e necessaria
+tupla4 = 1, 2, 3 # tupla sem parenteses
+
+# adicionando itens: tuplas são imutáveis. Para inserir elementos, pode-se criar uma lista previamente
+# dentro da tupla e inserir os dados nessa lista. Exemplo:
+
+tupla1 = ("a", "b", "c",[]) # lista vazia inserida dentro da tupla
+tupla1[-1].append("d") # inserindo um elemento dentro da lista, que está na ultima posição da tupla (-1)
+#print(tupla1[-1])
