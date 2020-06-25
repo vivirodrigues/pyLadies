@@ -1,0 +1,13 @@
+# retorna o indice na lista que corresponde à chave
+def buscaSequencialChave(lista, chave):
+  indices = []
+  for i in range(len(lista)): 
+    if lista[i] == chave:
+      indices.append(i)         
+  
+  return indices
+  
+chave = 3 # exemplo de chave
+lista = [0, 50, 32, 5, 7, 4, 1, 6, 5, 1, 2] # exemplo de lista
+indices = buscaSequencialChave(lista, chave)
+print(indices)
