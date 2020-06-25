@@ -1,0 +1,131 @@
+################## Sets ###############################
+
+# Os itens do set {} não pode ser modificados como na lista []
+
+frutas = {"açai", "banana", "cacau"}
+
+frutas.add("laranja")
+
+frutas.update(["seriguela","morango"])
+
+frutas.remove("morango") # se não existe, retornará erro
+
+frutas.discard("morango") # se não existe, não retornará erro
+
+x = frutas.pop() # apaga o ultimo item e o retorna
+
+frutas.clear() # apaga os itens
+
+del frutas #apaga o set
+
+# união
+
+set1 = {"a", "b" , "c"}
+set2 = {1, 2, 3}
+
+set3 = set1.union(set2) # set3 == {"a","b","c",1,2,3}
+
+# interseção
+
+set1 = {"a", "b" , "c"}
+set2 = {"c", "d", "e"}
+
+set3 = set1.intersection(set2) # set3 == {"c"}
+
+# tanto o union quanto o update removem itens duplicados
+
+######## Dicionario ####################################
+
+# Criando um dicionario
+
+dicionario_1 = {
+
+ 	'c1' : 'Niterói',
+    'c2' : 'Rio de Janeiro',
+    'c3' : 'Parati'
+}
+
+dicionario_2 = {
+
+ 	'Amanda' : 'Leticia',
+    'Luana' : 'Flavia',
+    'Paula' : 'Bruna'
+}
+
+dicionario_3 = dict([
+    ('c1', "Niterói"),
+    ('c2', "Rio de Janeiro"),
+    ('c3', "Parati")
+])
+
+dicionario_4 = {}
+
+dicionario_5 = {'city':{}}
+
+# acessando um item
+
+item = dicionario_1['c1']
+
+item = dicionario_1.get('c1')
+
+# tuplas também podem ser chaves do dicionario, porque são imutáveis
+
+d = {(1, 1): 'a', (1, 2): 'b', (2, 1): 'c', (2, 2): 'd'}
+
+item = d[(1,1)]
+
+item = d.get((1,1))
+
+# verificar se existe uma chave no dicionario
+
+chave = (1,1) in d # True or False
+
+# retornando lista de tuplas do dicionario
+
+dicionario = {'amanda': 'abacate', 'joao': 'melancia'}
+
+tuplasDic = dicionario.items() # retorna: dict_items([('amanda', 'abacate'), ('joao', 'melancia')])
+
+lista = list(tuplasDic) # transformar em lista de tuplas: [('amanda', 'abacate'), ('joao', 'melancia')]
+
+# lista de chaves
+
+dicionario = {'amanda': 'abacate', 'joao': 'melancia'}
+
+chaves = list(dicionario.keys())
+
+# lista de valores
+
+dicionario = {'amanda': 'abacate', 'joao': 'melancia'}
+
+valores = list(dicionario.values())
+
+# update
+
+dicionario = {'amanda': 'abacate', 'joao': 'melancia'}
+
+d2 = {'lucas': 'uva', 'daniele': 'limao'}
+
+dicionario.update(d2)
+
+# outras formas de update
+
+dicionario.update(carla='açai', julia='seriguela') 
+
+dicionario.update([('carla', 'abacaxi'), ('julia', 'tomate')])
+
+# letras do valor
+
+a0 = { x for x in dicionario.get('julia') } # exclui as repetidas
+
+# interseção
+
+dicionario1 = {'amanda': 'abacate', 'joao': 'melancia'}
+
+dicionario2 = {'lucas': 'uva', 'daniele': 'limao', 'caio':'melancia'}
+
+set1 = set(dicionario1.values())
+
+set2 = set(dicionario2.values())
+
+set3 = set1.intersection(set2)
