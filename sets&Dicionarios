@@ -1,42 +1,81 @@
 ################## Sets ###############################
 
-# Os itens do set {} não pode ser modificados como na lista []
+# Os itens do set {} não pode ser modificados!
+# Mas você pode adicionar mais itens no set.
+# Para que são bons: Fazer interseção e união de conjuntos.
+
+# Exemplo de set:
 
 frutas = {"açai", "banana", "cacau"}
+print("Set frutas = ", frutas)
+
+# Adicionar apenas um item no set
 
 frutas.add("laranja")
+print("Set frutas após adicionar laranja = ", frutas)
+
+# Adicionar mais de um item
 
 frutas.update(["seriguela","morango"])
+print("Set frutas após adicionar seriguela e morango = ", frutas)
 
-frutas.remove("morango") # se não existe, retornará erro
+# A função 'remove' retorna erro se o item que você queira remover não exista no set
 
-frutas.discard("morango") # se não existe, não retornará erro
+frutas.remove("morango")
 
-x = frutas.pop() # apaga o ultimo item e o retorna
+# A função 'discard' NÃO retorna erro se o item que você queira remover não exista no set
 
-frutas.clear() # apaga os itens
+frutas.discard("morango")
+print("Set frutas após remover morango = ", frutas)
 
-del frutas #apaga o set
+# A função 'pop' apaga um item do set de forma randômica e retorna-o
 
-# união
+x = frutas.pop()
+print("O item do set que foi apagado: ", x)
+
+# Para apagar todos os itens do set, utilize o 'clear'
+
+frutas.clear()
+
+# Para apagar o set:
+
+del frutas
+
+# união de sets, conjuntos (esta função remove itens duplicados)
 
 set1 = {"a", "b" , "c"}
 set2 = {1, 2, 3}
 
 set3 = set1.union(set2) # set3 == {"a","b","c",1,2,3}
+print("A união do set1 ", set1, "com o set2 ", set2, " foi: ", set3)
 
-# interseção
+# intercessão (esta função também remove itens duplicados)
 
 set1 = {"a", "b" , "c"}
 set2 = {"c", "d", "e"}
 
-set3 = set1.intersection(set2) # set3 == {"c"}
+set3 = set1.intersection(set2)
+print("A intercessão do set1 ", set1, "com o set2 ", set2, " foi: ", set3)
 
-# tanto o union quanto o update removem itens duplicados
 
 ######## Dicionario ####################################
+"""
 
-# Criando um dicionario
+Os dicionarios possuem valores que são indexados por chaves.
+
+Exemplo:
+
+pessoa_pais = {'oscar': 'colombia', 'vitoria': 'brasil'}
+
+Para acessar o pais de uma pessoa, é preciso passar a chave,
+ou seja 'oscar', ou 'vitoria'.
+
+pais_vitoria = pessoa_pais['vitoria']
+print(pais_vitoria) - > brasil
+
+"""
+
+# Primeira forma de criar um dicionário, com itens
 
 dicionario_1 = {
 
@@ -52,80 +91,95 @@ dicionario_2 = {
     'Paula' : 'Bruna'
 }
 
+# Segunda forma de criar um dicionário, com itens
+
 dicionario_3 = dict([
     ('c1', "Niterói"),
     ('c2', "Rio de Janeiro"),
     ('c3', "Parati")
 ])
 
+# Terceira forma de criar um dicionário, sem itens
+
 dicionario_4 = {}
+
+# Quarta forma de criar um dicionário
+# Este dicionário possui um item, cuja chave é um set vazio
 
 dicionario_5 = {'city':{}}
 
-# acessando um item
+# Formas de acessar um item de um dicionário
 
 item = dicionario_1['c1']
+print("Item c1 do dicionario 1: ", item)
 
 item = dicionario_1.get('c1')
+print("Item c1 do dicionario 1 usando método get: ", item)
 
-# tuplas também podem ser chaves do dicionario, porque são imutáveis
+# As tuplas também podem ser chaves do dicionario, porque são imutáveis
 
-d = {(1, 1): 'a', (1, 2): 'b', (2, 1): 'c', (2, 2): 'd'}
+dicionario_com_tuplas = {(1, 1): 'a', (1, 2): 'b', (2, 1): 'c', (2, 2): 'd'}
+print("Dicionario com tuplas:", dicionario_com_tuplas)
 
-item = d[(1,1)]
+item = dicionario_com_tuplas[(1,1)]
+print("O valor da chave (1,1) é: ", item)
 
-item = d.get((1,1))
+item = dicionario_com_tuplas.get((1,1))
+print("O valor da chave (1,1) usando método get é: ", item)
 
 # verificar se existe uma chave no dicionario
+# Retornando True or False
 
-chave = (1,1) in d # True or False
+existe_chave = (1,1) in dicionario_com_tuplas
+print("A chave (1,1) existe no dicionario com tuplas:", existe_chave)
 
 # retornando lista de tuplas do dicionario
+# O primeiro item da tupla é a chave
+# o Segundo item é o valor associado a chave
 
 dicionario = {'amanda': 'abacate', 'joao': 'melancia'}
+print("Dictionary de frutas favoritas das pessoas:", dicionario)
 
-tuplasDic = dicionario.items() # retorna: dict_items([('amanda', 'abacate'), ('joao', 'melancia')])
+# retornando o objeto: dict_items([('amanda', 'abacate'), ('joao', 'melancia')])
+tuplasDic = dicionario.items()
 
-lista = list(tuplasDic) # transformar em lista de tuplas: [('amanda', 'abacate'), ('joao', 'melancia')]
+# transformar em lista de tuplas: [('amanda', 'abacate'), ('joao', 'melancia')]
+lista = list(tuplasDic)
 
-# lista de chaves
+print("Tuplas dos itens do dicionario (chave, valor): ", lista)
 
-dicionario = {'amanda': 'abacate', 'joao': 'melancia'}
+# lista com todas as chaves do dicionario
 
 chaves = list(dicionario.keys())
+print("Lista com todas as chaves do dicionario: ", chaves)
 
-# lista de valores
-
-dicionario = {'amanda': 'abacate', 'joao': 'melancia'}
+# lista com todos os valores do dicionario
 
 valores = list(dicionario.values())
+print("Lista com todos os valores do dicionario: ", valores)
 
-# update
-
-dicionario = {'amanda': 'abacate', 'joao': 'melancia'}
+# update: adicionar os itens de outro dicionario
 
 d2 = {'lucas': 'uva', 'daniele': 'limao'}
 
 dicionario.update(d2)
+print("Dicionario apos adicionar as frutas do lucas e da daniele: ", dicionario)
 
 # outras formas de update
 
-dicionario.update(carla='açai', julia='seriguela') 
+dicionario.update(carla='açai', julia='seriguela')
+print("Dicionario apos adicionar as frutas da carla e da julia: ", dicionario)
 
 dicionario.update([('carla', 'abacaxi'), ('julia', 'tomate')])
+print("Dicionario apos adicionar outras frutas da carla e da julia: ", dicionario)
 
-# letras do valor
-
-a0 = { x for x in dicionario.get('julia') } # exclui as repetidas
-
-# interseção
+# intercessão de valores
 
 dicionario1 = {'amanda': 'abacate', 'joao': 'melancia'}
 
 dicionario2 = {'lucas': 'uva', 'daniele': 'limao', 'caio':'melancia'}
 
+# transforma os valores ou chaves do dicionario em sets
 set1 = set(dicionario1.values())
-
 set2 = set(dicionario2.values())
-
 set3 = set1.intersection(set2)
